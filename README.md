@@ -1,2 +1,1 @@
-# HackerRank
-HackerRank Solutions in java
+https://www.hackerrank.com
