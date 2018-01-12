@@ -7,16 +7,21 @@ import java.util.regex.*;
 public class Solution {
 
     static int solve(int n, int[] s, int d, int m){
-        int i,j,result=0;
-       for(i=0;i<(n-d+1);i++){
-           int sum=0;
-           for(j=0;j<d;j++){
-               sum=sum+s[i+j];
-           }System.out.print(sum);
-           if(sum==m){
-               result++;
-           }else result=0;
-       }return result;
+        /*for(int k=n;k<=n+m;k++){
+            s[k]=0;
+        }*/
+        
+        int i,j,c=0;
+        for(i=0;i<=(n-m);i++){
+            int s1=0;
+            for(j=0;j<m;j++){
+                s1=s1+s[i+j];
+            }
+            if(s1==d){
+                c++;
+            }
+        }
+        return c;
     }
 
     public static void main(String[] args) {
