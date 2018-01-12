@@ -6,47 +6,39 @@ import java.util.regex.*;
 
 public class Solution {
 
-    static int[] getRecord(int[] s){
-        int i,max=0,c=0;
-        int [] result=new int[2];
-        for(i=0;i<s.length;i++){
-           if(s[i]>max){
-               max=s[i];
-               c++;
-           }
-        }result[0]=c-1;
-        
-        int min,a=0;
-       
-        if(s[0]==0){
-            min=s[1];
-        }else
-            min=s[0];
-        for(i=0;i<s.length;i++){
-            if(min>s[i]){
-                min=s[i];
-                a++;
+    static int[] breakingRecords(int[] score) {
+        int max=score[0],min=score[0],counter_max=0,counter_min=0;
+        int result[]=new int [2];
+        for(int i=1;i<score.length;i++){
+            if(score[i]>max){
+                max=score[i];
+                counter_max+=1;
+            }
+            if(score[i]<min){
+                min=score[i];
+                counter_min+=1;
             }
         }
-
-        result[1]=a;
-
+        result[0]=counter_max;
+        result[1]=counter_min;
+        
         return result;
-       
-        }
+    }
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
-        int[] s = new int[n];
-        for(int s_i=0; s_i < n; s_i++){
-           s[s_i] = in.nextInt();
+        int[] score = new int[n];
+        for(int score_i = 0; score_i < n; score_i++){
+            score[score_i] = in.nextInt();
         }
-        int[] result = getRecord(s);
-        String separator = "", delimiter = " ";
-        for (Integer val : result) {
-            System.out.print(separator + val);
-            separator = delimiter;
+        int[] result = breakingRecords(score);
+        for (int i = 0; i < result.length; i++) {
+            System.out.print(result[i] + (i != result.length - 1 ? " " : ""));
         }
         System.out.println("");
+
+
+        in.close();
     }
 }
