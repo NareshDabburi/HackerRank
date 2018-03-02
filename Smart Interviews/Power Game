@@ -1,0 +1,47 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        for(int i1=0;i1<t;i1++){
+            int n=sc.nextInt();
+            int a[]=new int [n];
+            int b[]=new int [n];
+            for(int i=0;i<n;i++){
+                a[i]=sc.nextInt();
+            }
+            for(int i=0;i<n;i++){
+                b[i]=sc.nextInt();
+            }
+            Arrays.sort(a);
+            Arrays.sort(b);
+            int p1=0;
+            int p2=0;
+            int ans=0;
+            int c=0;
+            while(p1<n)
+            {
+                p2=c;
+                while(p2<n)
+                {
+                  if(a[p1]<=b[p2])
+                  {
+                   break;
+                  }
+                 else if(a[p1]>b[p2])
+                  {
+                    p2++;
+                    c=p2;
+                    ans++;
+                    break;
+                  }
+                }
+                p1++;
+           }
+            System.out.println(ans);
+         }
+       }
+     }
